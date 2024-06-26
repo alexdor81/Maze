@@ -1,0 +1,685 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>811</width>
+    <height>573</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Maze &amp; Cave</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <widget class="QTabWidget" name="tabWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>9</y>
+      <width>790</width>
+      <height>551</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>0</number>
+    </property>
+    <widget class="QWidget" name="maze">
+     <attribute name="title">
+      <string>Лабиринт</string>
+     </attribute>
+     <widget class="s21::PaintScene" name="maze_scene" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>500</width>
+        <height>500</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="geometry">
+       <rect>
+        <x>523</x>
+        <y>4</y>
+        <width>251</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Загрузка файла</string>
+      </property>
+      <widget class="QPushButton" name="pb_load_file_maze">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>211</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover {
+	color: rgb(193, 193, 193);
+}</string>
+       </property>
+       <property name="text">
+        <string>Загрузить</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="filename_maze">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>211</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Имя файла</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_2">
+      <property name="geometry">
+       <rect>
+        <x>523</x>
+        <y>110</y>
+        <width>251</width>
+        <height>171</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Выбрать размер</string>
+      </property>
+      <widget class="QSpinBox" name="spinbox_rows_maze">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>30</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+       <property name="value">
+        <number>15</number>
+       </property>
+       <property name="displayIntegerBase">
+        <number>10</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinbox_columns_maze">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>60</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+       <property name="value">
+        <number>15</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_rows_maze">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>141</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Строки</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_columns_maze">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>141</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+         <bold>false</bold>
+        </font>
+       </property>
+       <property name="text">
+        <string>Столбцы</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_generate_maze">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>90</y>
+         <width>211</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover {
+	color: rgb(193, 193, 193);
+}</string>
+       </property>
+       <property name="text">
+        <string>Сгенерировать</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_save_file_maze">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>130</y>
+         <width>211</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover {
+	color: rgb(193, 193, 193);
+}</string>
+       </property>
+       <property name="text">
+        <string>Сохранить</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+    <widget class="QWidget" name="cave">
+     <attribute name="title">
+      <string>Пещера</string>
+     </attribute>
+     <widget class="s21::PaintScene" name="cave_scene" native="true">
+      <property name="geometry">
+       <rect>
+        <x>10</x>
+        <y>10</y>
+        <width>500</width>
+        <height>500</height>
+       </rect>
+      </property>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_3">
+      <property name="geometry">
+       <rect>
+        <x>523</x>
+        <y>4</y>
+        <width>251</width>
+        <height>101</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Загрузка файла</string>
+      </property>
+      <widget class="QLabel" name="filename_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>211</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Имя файла</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_load_file_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>211</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover {
+	color: rgb(193, 193, 193);
+}</string>
+       </property>
+       <property name="text">
+        <string>Загрузить</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_4">
+      <property name="geometry">
+       <rect>
+        <x>523</x>
+        <y>276</y>
+        <width>251</width>
+        <height>94</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Задать лимиты</string>
+      </property>
+      <widget class="QLabel" name="label_birth_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Рождение</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_death_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>61</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Смерть</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinbox_birth_cave">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>30</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="maximum">
+        <number>7</number>
+       </property>
+       <property name="value">
+        <number>4</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinbox_death_cave">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>60</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="maximum">
+        <number>7</number>
+       </property>
+       <property name="value">
+        <number>3</number>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_5">
+      <property name="geometry">
+       <rect>
+        <x>523</x>
+        <y>110</y>
+        <width>251</width>
+        <height>161</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Выбрать размер</string>
+      </property>
+      <widget class="QLabel" name="label_columns_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>60</y>
+         <width>141</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Столбцы</string>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_rows_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>141</width>
+         <height>20</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Строки</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinbox_rows_cave">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>30</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+       <property name="value">
+        <number>25</number>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinbox_columns_cave">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>60</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>50</number>
+       </property>
+       <property name="value">
+        <number>25</number>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_generate_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>120</y>
+         <width>211</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover {
+	color: rgb(193, 193, 193);
+}</string>
+       </property>
+       <property name="text">
+        <string>Сгенерировать</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinbox_chance_cave">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>90</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="minimum">
+        <number>0</number>
+       </property>
+       <property name="maximum">
+        <number>100</number>
+       </property>
+       <property name="value">
+        <number>50</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_chance_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>92</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>Шанс</string>
+       </property>
+      </widget>
+     </widget>
+     <widget class="QGroupBox" name="groupBox_6">
+      <property name="geometry">
+       <rect>
+        <x>523</x>
+        <y>374</y>
+        <width>251</width>
+        <height>136</height>
+       </rect>
+      </property>
+      <property name="title">
+       <string>Режим отрисовки</string>
+      </property>
+      <widget class="QPushButton" name="pb_auto_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>100</y>
+         <width>211</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover {
+	color: rgb(193, 193, 193);
+}</string>
+       </property>
+       <property name="text">
+        <string>Автоматически</string>
+       </property>
+      </widget>
+      <widget class="QSpinBox" name="spinbox_milliseconds_cave">
+       <property name="geometry">
+        <rect>
+         <x>170</x>
+         <y>67</y>
+         <width>61</width>
+         <height>21</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="minimum">
+        <number>50</number>
+       </property>
+       <property name="maximum">
+        <number>9999</number>
+       </property>
+       <property name="value">
+        <number>500</number>
+       </property>
+      </widget>
+      <widget class="QLabel" name="label_milliseconds_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>70</y>
+         <width>141</width>
+         <height>16</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>1 шаг в м/сек</string>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pb_step_cave">
+       <property name="geometry">
+        <rect>
+         <x>20</x>
+         <y>30</y>
+         <width>211</width>
+         <height>32</height>
+        </rect>
+       </property>
+       <property name="font">
+        <font>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">QPushButton:hover {
+	color: rgb(193, 193, 193);
+}</string>
+       </property>
+       <property name="text">
+        <string>Пошагово</string>
+       </property>
+      </widget>
+     </widget>
+    </widget>
+   </widget>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>s21::PaintScene</class>
+   <extends>QWidget</extends>
+   <header location="global">view/paint_scene.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections/>
+</ui>
